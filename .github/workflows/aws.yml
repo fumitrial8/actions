@@ -19,7 +19,7 @@ jobs:
       run: 
         echo "$SECRET_KEY" > secret_key
         chmod 600 secret_key
-        ssh -i secret_key -o StrictHostKeyChecking=no ubuntu@54.249.174.207 "cd ~/actions && git pull origin master"
+        ssh -i secret_key -o StrictHostKeyChecking=no ubuntu@54.249.174.207 "cd actions && git pull origin master"
 
     - name: python run
       run: pip3 install -r requirements.txt
