@@ -1,0 +1,13 @@
+pyzmq
+pandas
+pillow
+opencv-python
+Flask
+scipy
+numpy
+janome
+mecab-python3
+requests_oauthlib
+wordcloud
+matplotlib
+beautifulsoup4
