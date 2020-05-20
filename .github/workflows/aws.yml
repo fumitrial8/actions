@@ -21,6 +21,9 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
+    - name: git clone
+      run: GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" pipenv install -v --system --dev --skip-lock --ignore-pipfile
+    
     - name: python run
       run: pip3 install -r requirements.txt
 
