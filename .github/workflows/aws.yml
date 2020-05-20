@@ -21,8 +21,8 @@ jobs:
         chmod 600 secret_key
         ssh -i secret_key -o StrictHostKeyChecking=no "${EC2_USER}"@"${EC2_HOST}" "cd actions && git pull origin master"
 
-    - name: python run
-      run: pip3 install -r requirements.txt
+#     - name: python run
+#       run: pip3 install -r requirements.txt
 
-    - name: python run
-      run: nohup python3 run.py &
+#     - name: python run
+#       run: nohup python3 run.py &
