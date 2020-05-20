@@ -25,9 +25,7 @@ jobs:
       run: 
         echo "$SECRET_KEY" > secret_key
         chmod 600 secret_key
-        ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} -i secret_key
-        cd /home/ubuntu
-        git pull origin master
+        ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} -i secret_key "cd ~ && git pull origin master"
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         EC2_USER: ${{ secrets.EC2_USER }}
