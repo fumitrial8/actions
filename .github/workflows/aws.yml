@@ -9,7 +9,6 @@ jobs:
   deploy:
     name: Upload to Amazon ec2
     runs-on: ubuntu-latest
-
     steps:
     - name: git clone
       env:
