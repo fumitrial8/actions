@@ -22,8 +22,10 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
     - name: git clone
-      run: GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" pipenv install -v --system --dev --skip-lock --ignore-pipfile
-    
+      run: git remote set-url origin https://fumitrial8:${GITHUB_TOKEN}@github.com/fumitrial8/actions.git
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
     - name: python run
       run: pip3 install -r requirements.txt
 
