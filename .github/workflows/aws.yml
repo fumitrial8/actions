@@ -19,6 +19,7 @@ jobs:
       run: 
         echo "$SECRET_KEY" > secret_key
         chmod 600 secret_key
+        echo ${EC2_USER}
         ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd actions && git pull origin master"
 
 #     - name: python run
