@@ -20,5 +20,5 @@ jobs:
         echo "$SECRET_KEY" > secret_key
         chmod 600 secret_key
         echo ${EC2_USER}
-        ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd actions && pkill gunicorn && git pull origin master && pip install -v -r requirements.txt && gunicorn -b :5000 run:app"
+        ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd actions && pkill gunicorn &&echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile && echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile && echo 'eval "$(pyenv init -)"' >> ~/.bash_profile && source ~/.bash_profile && git pull origin master && pip install -v -r requirements.txt && gunicorn -b :5000 run:app"
         
