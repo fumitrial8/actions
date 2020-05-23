@@ -10,6 +10,11 @@ jobs:
     name: Upload to Amazon ec2
     runs-on: ubuntu-18.04
     steps:
+    - name: setup pyenv
+      uses: "gabrielfalcao/pyenv-action@v5"
+      with:
+        default: 3.6.2
+        versions: 3.6.8, 3.5.7
     - name: git clone
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
