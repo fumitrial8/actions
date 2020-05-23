@@ -10,11 +10,7 @@ jobs:
     name: Upload to Amazon ec2
     runs-on: ubuntu-18.04
     steps:
-    - name: setup pyenv
-      uses: "gabrielfalcao/pyenv-action@v5"
-      with:
-        default: 3.6.2
-        versions: 3.6.8, 3.5.7
+
     - name: git clone
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
@@ -24,5 +20,5 @@ jobs:
         echo "$SECRET_KEY" > secret_key
         chmod 600 secret_key
         echo ${EC2_USER}
-        ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd actions && pyenv -v && pkill gunicorn && git pull origin master && pip3 install -v -r requirements.txt && gunicorn -b :5000 run:app"
+        ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd actions && which python && pkill gunicorn && git pull origin master && pip3 install -v -r requirements.txt && gunicorn -b :5000 run:app"
         
