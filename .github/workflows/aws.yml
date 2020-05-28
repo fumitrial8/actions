@@ -20,4 +20,6 @@ jobs:
         echo "$SECRET_KEY" > secret_key
         chmod 600 secret_key
         echo ${EC2_USER}
-          ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd /home/ubuntu/actions && echo $(pwd) && pkill gunicorn && git pull origin master && pip3 install -v -r requirements.txt && gunicorn -b :5000 run:app"
+        echo ${EC2_USER}
+        echo ${EC2_USER}
+        ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd /home/ubuntu/actions && echo $(pwd) && pkill gunicorn && git pull origin master && pip3 install -v -r requirements.txt && gunicorn -b :5000 run:app"
