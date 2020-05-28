@@ -19,4 +19,4 @@ jobs:
       run: |
         echo "$SECRET_KEY" > secret_key
         chmod 600 secret_key
-        ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd /home/ubuntu/actions && pkill python3 && git pull origin master && pip3 install -v -r requirements.txt && python3 run.py"
+        ssh -i secret_key -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} "cd /home/ubuntu/actions && pkill python3 && git pull origin master && pip3 install -v -r requirements.txt && nohup python3 run.py \&"
