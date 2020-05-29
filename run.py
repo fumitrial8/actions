@@ -100,6 +100,7 @@ def analize():
 @app.route('/result', methods=["GET"])
 def result():
     query = str(int(datetime.datetime.now().timestamp()))
+    print("hello")
     return "<img src='/static/tweet.png?q=%s' alt='pic01'></img><a href='/'>戻る</a>" % query
 
 if __name__ == '__main__':
